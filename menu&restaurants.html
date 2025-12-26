@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Bar</title>
+    <link rel="icon" href="icon.png">
+    <style>
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a0000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8B0000, #ff0000);
+            border-radius: 6px;
+            border: 2px solid #1a0000;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: rgb(77, 11, 11);
+        }
+        header{
+            text-align: center;
+            justify-content: space-evenly;
+            display: flex;
+            background-color: #efefef;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+        header a{
+            color: black;
+            font-family: sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 15px;
+            transition-duration: 0.5s;
+        }
+        header a:hover{
+            color: rgb(146, 19, 19);
+            transform: scale(1.1);
+        }
+        header img{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        nav {
+            display: contents;
+        }
+        .menu-container {
+            width: 100%;
+            margin: 40px auto;
+            padding: 50px 70px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            background: rgb(77, 11, 11);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+            border-radius: 8px;
+            backdrop-filter: blur(3px);
+        }
+        .menu-title {
+            width: 100%;
+            text-align: center;
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 5px;
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+        }
+        .menu-column {
+            flex: 1;
+            min-width: 350px;
+            margin: 30px;
+        }
+        .category-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            letter-spacing: 2px;
+            margin-top: 40px;
+            margin-bottom: 25px;
+            border-bottom: 1px solid rgb(255, 255, 255);
+            padding-bottom: 10px;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+        }
+        .wine-category:first-of-type .category-title {
+            margin-top: 0;
+        }
+        .wine-item {
+            display: flex;
+            align-items: baseline;
+            margin-bottom: 18px;
+            font-size: 16px;
+            transition: transform 0.2s ease-out;
+            font-family: sans-serif;
+            color: rgb(255, 255, 255);
+        }
+        .wine-name {
+            opacity: 0.9;
+        }
+        .wine-dots {
+            flex-grow: 1;
+            border-bottom: 1px dotted rgb(255, 255, 255);
+            margin: 0 8px;
+            transform: translateY(-4px);
+        }
+        .wine-price {
+            font-weight: 600;
+            color: rgb(255, 255, 255);
+            font-family: 'Playfair Display', serif;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        footer p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        .card {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 50px 20px;
+            background-color: #efefef;
+            width: 100%;
+        }
+        .card img{
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .card-item {
+            background-color: white;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 300px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        .card-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        .card-item:hover img {
+            transform: scale(1.05);
+        }
+        .card-name {
+            text-align: center;
+            padding: 20px;
+            font-family: sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: rgb(77, 11, 11);
+            background-color: white;
+        }
+        .video-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            width: 100%;
+            max-width: 1200px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+            background-color: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .video-wrapper video {
+            width: 100%;
+            max-width: 550px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .video-content {
+            flex: 1;
+            min-width: 300px;
+        }
+        .video-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 32px;
+            color: rgb(77, 11, 11);
+            margin-bottom: 20px;
+        }
+        .video-content p {
+            font-family: sans-serif;
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            header {
+                justify-content: space-between;
+                padding: 15px 20px;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            nav.active {
+                display: flex;
+            }
+            header a {
+                font-size: small;
+                display: block;
+                margin: 10px 0;
+            }
+            .menu-container {
+                padding: 30px 15px;
+                margin-top: 80px;
+            }
+            .menu-column {
+                min-width: 100%;
+                margin: 15px 0;
+            }
+            .menu-title {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="icon.png" onclick="window.location.href = 'index.html'">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="navbar">
+            <a href="index.html">MAIN</a>
+            <a href="menu&restaurants.html">MENU & RESTAURANTS</a>
+            <a href="reservation&bookings.html">RESERVATION & BOOKINGS</a>
+            <a href="events.html">EVENTS</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+    </header>
+    <main>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div style="border: 1px solid white;" class="menu-container">
+    <h1 class="menu-title">Menu</h1>
+    <div class="menu-column">
+        <div class="wine-category">
+            <h2 class="category-title">SOFT CHEESE</h2>
+            <div class="wine-item"><span class="wine-name">Moldy Cheese</span><span class="wine-dots"></span><span class="wine-price">25–60 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Camembert</span><span class="wine-dots"></span><span class="wine-price">45–90 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Brillat-Savarin</span><span class="wine-dots"></span><span class="wine-price">35–70 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Triple Crème</span><span class="wine-dots"></span><span class="wine-price">30–65 USD</span></div>
+        </div>
+        <div class="wine-category">
+            <h2 class="category-title">SEMI-SWEET RED</h2>
+            <div class="wine-item"><span class="wine-name">Kindzmarauli</span><span class="wine-dots"></span><span class="wine-price">30–70 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Khvanchkara</span><span class="wine-dots"></span><span class="wine-price">80–180 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Usakhelauri</span><span class="wine-dots"></span><span class="wine-price">150–400 USD</span></div>
+        </div>
+        <div class="wine-category">
+            <h2 class="category-title">ROSÉ Wines</h2>
+            <div class="wine-item"><span class="wine-name">Saperavi Rosé</span><span class="wine-dots"></span><span class="wine-price">25–45 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Shavkapito Rosé</span><span class="wine-dots"></span><span class="wine-price">30–55 USD</span></div>
+        </div>
+    </div>
+    <div class="menu-column">
+        <div class="wine-category">
+            <h2 class="category-title">FRESH CHEESE</h2>
+            <div class="wine-item"><span class="wine-name">Mozzarella</span><span class="wine-dots"></span><span class="wine-price">20–45 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Burrata</span><span class="wine-dots"></span><span class="wine-price">25–50 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Ricotta</span><span class="wine-dots"></span><span class="wine-price">25–55 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Feta</span><span class="wine-dots"></span><span class="wine-price">30–65 USD</span></div>
+        </div>
+        <div class="wine-category">
+            <h2 class="category-title">Pomegranate Wines</h2>
+            <div class="wine-item"><span class="wine-name">Hicaz</span><span class="wine-dots"></span><span class="wine-price">130–180 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Ganesh</span><span class="wine-dots"></span><span class="wine-price">140–190 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Bhagwa</span><span class="wine-dots"></span><span class="wine-price">140–185 USD</span></div>
+        </div>
+        <div class="wine-category">
+            <h2 class="category-title">ARMENIAN WINE</h2>
+            <div class="wine-item"><span class="wine-name">Areni</span><span class="wine-dots"></span><span class="wine-price">225–250 USD</span></div>
+            <div class="wine-item"><span class="wine-name">Voskehat</span><span class="wine-dots"></span><span class="wine-price">235–270 USD</span></div>
+        </div>
+    </div>
+</div>
+<br>
+</div> 
+<br>
+<br>
+        <h1 style="text-align: center; color: rgb(77, 11, 11); background-color: #efefef; padding: 15px 15px; border-top-left-radius: 20px; border-top-right-radius: 20px;font-family: sans-serif; font-weight: 500;">Our Partner Restaurants</h1>
+        <div class="card">
+            <div class="card-item">
+                <img onclick="window.open('https://bernssteakhouse.com/wine-cellar/')" src="res1.png" alt="">
+                <div class="card-name">Berns Wine</div>
+            </div>
+            <div class="card-item">
+                <img onclick="window.open('https://www.postinowinecafe.com/')" src="res2.png" alt="">
+                <div class="card-name">Post In Now Cafe</div>
+            </div>
+            <div class="card-item">
+                <img onclick="window.open('https://chwinery.com/')" src="res3.png" alt="">
+                <div class="card-name">Chwinery</div>
+            </div>
+            <div class="card-item">
+                <img onclick="window.open('https://www.smashinggrapes.com/')" src="res4.png" alt="">
+                <div class="card-name">Smashing Grapes</div>
+            </div>
+            <div class="video-wrapper">
+                <video src="bar.mp4" loop autoplay muted></video>
+                <div class="video-content">
+                    <h2>Experience the Atmosphere</h2>
+                    <p>Immerse yourself in the warm, inviting glow of our wine bar. Whether you're here for a romantic evening or a lively gathering with friends, our carefully curated atmosphere sets the perfect stage for unforgettable memories. Enjoy live jazz, exquisite wines, and the company of fellow enthusiasts.</p>
+                </div>
+            </div>
+        </div>  
+    </main>
+    <footer style="padding: 30px 20px; color: rgb(255, 255, 255); font-family: sans-serif;background-color: rgb(59, 8, 8)">
+        <div class="footer-container">
+            <div class="footer-section">
+                <p style="font-size: 22px; font-weight: 600;">Contact </p>
+                <p>Address: Northern Avenue 6/7, Yerevan, Armenia</p>
+                <br>
+                <p>Phone: 579 18 30 00</p>
+                <br>
+                <p>Hours: 8:00 AM - 10:00 PM (Monday - Saturday)</p>
+            </div>
+            <div class="footer-section">
+                <p style="font-size: 22px; font-weight: 600;">Main Pages</p>
+                <p onclick="window.location.href = 'index.html'" style="cursor: pointer;">Main</p>
+                <p onclick="window.location.href = 'menu&restaurants.html'" style="cursor: pointer;">Menu & Restaurants</p>
+                <p onclick="window.location.href = 'reservation&bookings.html'" style="cursor: pointer;">Reservation & Bookings</p>
+                <p onclick="window.location.href = 'contact.html'" style="cursor: pointer;">Contact</p>
+                <p onclick="window.location.href = 'events.html'"   style="cursor: pointer;">Events</p>
+            </div>
+        </div>
+        <br>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById("navbar").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
