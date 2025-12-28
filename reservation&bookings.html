@@ -275,6 +275,110 @@
             margin: 8px 0;
             line-height: 1.5;
         }
+        .container {
+            width: 80%;
+            margin: 80px auto;
+            border: 1px solid white;
+            padding: 15px 20px;
+            border-radius: 15px;
+            background-color: #efefef;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7e1717;
+            margin-bottom: 50px;
+        }
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+        label {
+            font-size: 13px;
+            color: #ffffff;
+            margin-bottom: 5px;
+            display: block;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #f0cfd6;
+            outline: none;
+            font-size: 14px;
+            border-radius: 10px;
+        }
+        textarea {
+            height: 160px;
+            resize: none;
+        }
+        .full {
+            grid-column: span 2;
+        }
+        .btn {
+            margin-top: 20px;
+            background: #5b0020;
+            color: #ffffff;
+            border: none;
+            padding: 12px 30px;
+            cursor: pointer;
+            font-size: 14px;
+            border-radius: 10px;
+            font-family: sans-serif;
+            font-weight: 600;
+        }
+        .btn:hover{
+            background-color: #3a0115;
+            color: #ffffff;
+        }
+        .contact-section {
+            margin-top: 100px;
+            text-align: center;
+        }
+        .contact-box {
+            margin-top: 50px;
+            background: #2b2b92;
+            padding: 40px;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .icon {
+            width: 40px;
+            height: 40px;
+            background: #5b0020;
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 18px;
+        }
+        .contact-text {
+            text-align: left;
+            font-size: 14px;
+            color: #ffffff;
+        }
+        option{
+            border-radius: 8px;
+            background-color: #efefef;
+            color: #5b0020;
+            cursor: pointer;
+            font-family: sans-serif;
+        }
+        option:hover{
+            color: red;
+            background-color: rgb(255, 0, 0);
+        }
         @media (max-width: 768px) {
             header {
                 justify-content: space-between;
@@ -390,6 +494,50 @@
         </div>
     </div>
 </section>
+<br>
+<br>
+<hr>
+<br>
+<div class="container">
+    <h1 style="color: rgb(77, 11, 11);">Make a reservation</h1>
+    <form id="contact-form">
+        <div class="form-grid">
+            <div>
+                <label style="font-family: sans-serif; color: rgb(77, 11, 11);">Your Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label style="font-family: sans-serif; color: rgb(77, 11, 11);">Your Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label style="font-family: sans-serif;color: rgb(77, 11, 11);">Choose Place</label>
+                <select id="subject" name="subject" required>
+                    <option value="Samtredia">Samtredia</option>
+                    <option value="Tbilisi">Tbilisi</option>
+                    <option value="Qutaisi">Qutaisi</option>
+                    <option value="Batumi">Batumi</option>
+                    <option value="Mtskheta">Mtskheta</option>
+                    <option value="Gurjaani">Gurjaani</option>
+                </select>
+            </div>
+            <div>
+                <label style="font-family: sans-serif;color: rgb(77, 11, 11);">Choose Restaurant</label>
+                <select id="subject" name="subject" required>
+                    <option value="Samtredia">Wine Bar</option>
+                    <option value="Tbilisi">SamTerrase</option>
+                    <option value="Qutaisi">WineMolly</option>
+                    <option value="Batumi">SeaWine</option>
+                    <option value="Mtskheta">Mtskheta Caffe</option>
+                    <option value="Gurjaani">Varada Bar</option>
+                </select>
+            </div>
+        </div>
+        <br>
+        <br>
+        <button required type="submit" style="text-align: center; justify-content: center; margin: 0 auto; display: flex;" class="btn">Book Now</button>
+    </form>
+</div>
 <br>
 <br>
     <footer style="padding: 30px 20px; color: rgb(255, 255, 255); font-family: sans-serif;background-color: rgb(59, 8, 8)">
