@@ -403,9 +403,28 @@
                 display: block;
                 margin: 10px 0;
             }
+            .support img{
+                z-index: 1000;
+            }
+        }
+        .support img{
+            width: 60px;
+            height: 60px;
+            position: fixed;
+            bottom: 3%;
+            right: 1%;
+            border-radius: 50%;
+            cursor: pointer;
+            transition-duration: 1s;
+        }
+        .support img:hover{
+            transform: scale(1.1);
         }
     </style>
 </head>
+    <div class="support">
+        <img onclick="window.location.href = 'support.html'" src="support.png" alt="">
+    </div>
 <body>
     <header>
         <img src="icon.png" onclick="window.location.href = 'index.html'">
@@ -475,7 +494,7 @@
         <div class="card">
             <img src="sxvaqisi.png" data-desc="ბუნებრივად ნახევრადტკბილი, ხავერდოვანი გემოთი და ალუბლის ტონებით. იდეალურია დესერტებთან.">
             <div class="card-content">
-                <h3>Kindzmarauli</h3>
+                <h3>Akhmetis Kisi</h3>
                 <span class="price elite-std">$95</span>
             </div>
         </div>

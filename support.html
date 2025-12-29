@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Wine Bar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Bar</title>
     <link rel="icon" href="icon.png">
     <style>
         ::-webkit-scrollbar {
@@ -17,15 +17,16 @@
             border-radius: 6px;
             border: 2px solid #1a0000;
         }
-        * {
-            margin: 0;
+        *{
             padding: 0;
+            margin: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
         }
-        body {
-            background: rgb(77, 11, 11);
-            color: #222;
+        body{
+            background-color: rgb(77, 11, 11);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
         header{
             text-align: center;
@@ -65,21 +66,46 @@
         nav {
             display: contents;
         }
-        .footer-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 40px;
-            flex-wrap: wrap;
-            max-width: 1200px;
-            margin: auto;
+        @media (max-width: 768px) {
+            header {
+                justify-content: space-between;
+                padding: 15px 20px;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            nav.active {
+                display: flex;
+            }
+            header a {
+                font-size: small;
+                display: block;
+                margin: 10px 0;
+            }
+            .support img{
+                z-index: 1000;
+            }
         }
-        .footer-section {
-            flex: 1;
-            min-width: 250px;
+        .support img{
+            width: 60px;
+            height: 60px;
+            position: fixed;
+            bottom: 3%;
+            right: 1%;
+            border-radius: 50%;
+            cursor: pointer;
+            transition-duration: 1s;
         }
-        footer p {
-            margin: 8px 0;
-            line-height: 1.5;
+        .support img:hover{
+            transform: scale(1.1);
         }
         .container {
             width: 80%;
@@ -87,6 +113,7 @@
             border: 1px solid white;
             padding: 15px 20px;
             border-radius: 15px;
+            background-color: #420707;
         }
         h1 {
             text-align: center;
@@ -98,9 +125,7 @@
             margin-bottom: 50px;
         }
         .form-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
+            gap: 30px;
         }
         label {
             font-size: 13px;
@@ -109,7 +134,10 @@
             display: block;
         }
         input, textarea {
-            width: 100%;
+            justify-content: center;
+            display: flex;
+            margin: 0 auto;
+            width: 30%;
             padding: 12px;
             border: 1px solid #f0cfd6;
             outline: none;
@@ -173,72 +201,16 @@
             font-size: 14px;
             color: #ffffff;
         }
-        @media (max-width: 768px) {
-            header {
-                justify-content: space-between;
-                padding: 15px 20px;
-                align-items: center;
-                flex-wrap: wrap;
-            }
-            .menu-toggle {
-                display: block;
-            }
-            nav {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                text-align: center;
-            }
-            nav.active {
-                display: flex;
-            }
-            header a {
-                font-size: small;
-                display: block;
-                margin: 10px 0;
-            }
-            .container {
-                width: 90%;
-                margin: 100px auto 40px auto;
-            }
-            .form-grid {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-            .full {
-                grid-column: span 1;
-            }
-            .contact-box {
-                width: 100%;
-                padding: 20px;
-            }
-            .contact-item {
-                flex-direction: column;
-                text-align: center;
-            }
-            .icon {
-                margin-right: 0;
-                margin-bottom: 10px;
-            }
-            .contact-text {
-                text-align: center;
-            }
-            .support img{
-                z-index: 1000;
-            }
-        }
-        .support img{
-            width: 60px;
-            height: 60px;
-            position: fixed;
-            bottom: 3%;
-            right: 1%;
-            border-radius: 50%;
-            cursor: pointer;
-            transition-duration: 1s;
-        }
-        .support img:hover{
-            transform: scale(1.1);
+        select{
+            justify-content: center;
+            display: flex;
+            margin: 0 auto;
+            width: 30%;
+            padding: 12px;
+            border: 1px solid #f0cfd6;
+            outline: none;
+            font-size: 14px;
+            border-radius: 10px;
         }
     </style>
 </head>
@@ -260,61 +232,47 @@
     </header>
     <br>
     <br>
-<div class="container">
-    <h1 style="color: white;">Message Us</h1>
-    <p class="subtitle">We would love to hear from you!</p>
-    <form id="contact-form">
-        <div class="form-grid">
+    <br>
+    <main>
+    <div class="container">
+        <h1 style="color: rgb(255, 255, 255);">Support</h1>
+        <h1 onclick="window.location.href = 'privacy.html'" style="color: rgb(219, 219, 219); font-size: 15px; font-family: sans-serif; text-decoration: underline; cursor: pointer;">For more information about our website and our rules please read our privacy & safety reasons</h1>
+        <form id="contact-form">
+            <div class="form-grid">
+                <br>
             <div>
-                <label>Your Name</label>
+                <label style="font-family: sans-serif; color: rgb(255, 255, 255);text-align: center;">Your Name</label>
                 <input type="text" id="name" name="name" required>
             </div>
+            <br>
             <div>
-                <label>Your Email</label>
+                <label style="font-family: sans-serif; color: rgb(255, 255, 255);text-align: center;">Your Email</label>
                 <input type="email" id="email" name="email" required>
             </div>
+            <br>
             <div>
-                <label>Your Phone</label>
-                <input type="text" id="phone" name="phone" required>
+                <label style="font-family: sans-serif;color: rgb(255, 255, 255); text-align: center;font-family: sans-serif;">What is your questiona about?</label>
+                <select style="text-align: center;" id="subject" name="subject" required>
+                    <option value="Samtredia">About Wine</option>
+                    <option value="Tbilisi">About Shipping</option>
+                    <option value="Qutaisi">About Shipping Time</option>
+                    <option value="Batumi">About Other Countries</option>
+                </select>
             </div>
+            <br>
             <div>
-                <label>Subject</label>
-                <input type="text" id="subject" name="subject" required>
-            </div>
-            <div class="full">
-                <label>Your Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-        </div>
-        <button required type="submit" class="btn">Send Message</button>
-    </form>
-</div>
-    <footer style="padding: 30px 20px; color: rgb(255, 255, 255); font-family: sans-serif;background-color: rgb(59, 8, 8)">
-        <div class="footer-container">
-            <div class="footer-section">
-                <p style="font-size: 22px; font-weight: 600;">Contact </p>
-                <p>Address: Northern Avenue 6/7, Yerevan, Armenia</p>
-                <br>
-                <p>Phone: 579 18 30 00</p>
-                <br>
-                <p>Hours: 8:00 AM - 10:00 PM (Monday - Saturday)</p>
-            </div>
-            <div class="footer-section">
-                <p style="font-size: 22px; font-weight: 600;">Main Pages</p>
-                <p onclick="window.location.href = 'index.html'" style="cursor: pointer;">Main</p>
-                <p onclick="window.location.href = 'menu&restaurants.html'" style="cursor: pointer;">Menu & Restaurants</p>
-                <p onclick="window.location.href = 'reservation&bookings.html'" style="cursor: pointer;">Reservation & Bookings</p>
-                <p onclick="window.location.href = 'contact.html'" style="cursor: pointer;">Contact</p>
-                <p onclick="window.location.href = 'events.html'"   style="cursor: pointer;">Events</p>
-                <p onclick="window.location.href = 'team.html'"   style="cursor: pointer;">Team</p>
+                <label style="font-family: sans-serif; color: rgb(255, 255, 255);text-align: center;">Your Message</label>
+                <input type="text" id="text" name="text" required>
             </div>
         </div>
         <br>
+        <br>
+        <button required type="submit" style="text-align: center; justify-content: center; margin: 0 auto; display: flex;" class="btn">Submit</button>
+    </form>
+</div>
+    </main>
+    <footer>
+
     </footer>
-    <script>
-        function toggleMenu() {
-            document.getElementById("navbar").classList.toggle("active");
-        }
-    </script>
 </body>
 </html>

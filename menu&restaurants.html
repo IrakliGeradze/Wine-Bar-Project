@@ -256,9 +256,29 @@
             .menu-title {
                 font-size: 32px;
             }
+            .support img{
+                z-index: 1000;
+            }
+        }
+        .support img{
+            width: 60px;
+            height: 60px;
+            position: fixed;
+            bottom: 3%;
+            right: 1%;
+            border-radius: 50%;
+            cursor: pointer;
+            transition-duration: 1s;
+            z-index: 1000;
+        }
+        .support img:hover{
+            transform: scale(1.1);
         }
     </style>
 </head>
+    <div class="support">
+        <img onclick="window.location.href = 'support.html'" src="support.png" alt="">
+    </div>
 <body>
     <header>
         <img src="icon.png" onclick="window.location.href = 'index.html'">
