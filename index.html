@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wine Bar</title>
     <link rel="icon" href="icon.png">
+    <meta property="og:title" content="Wine Bar">
+    <meta property="og:description" content="Premium pomegranate wine experience">
+    <meta property="og:image" content="https://wine-bar.netlify.app/preview.png">
+    <meta property="og:url" content="https://wine-bar.netlify.app">
+    <meta property="og:type" content="website">
     <style>
         ::-webkit-scrollbar {
             width: 12px;
@@ -44,7 +49,7 @@
             text-decoration: none;
             font-size: 18px;
             margin-top: 15px;
-            transition-duration: 0.5s;
+            transition: color 0.5s, transform 0.5s;
         }
         header a:hover{
             color: rgb(146, 19, 19);
@@ -101,7 +106,7 @@
             object-fit: cover;
             border-radius: 15px;
             border: 1px solid black;
-            transition-duration: 1s;
+            transition: transform 1s;
         }
         .card-item {
             position: relative;
@@ -118,7 +123,7 @@
             background-color: rgb(77, 11, 11);
             padding: 5px 10px;
             border-radius: 15px;
-            transition-duration: 1s;
+            transition: transform 1s;
         }
         .card-item:hover img{
             transform: scale(1.1);
@@ -163,7 +168,7 @@
         }
         .cards img{
             width: 100%;
-            transition-duration: 1s;
+            transition: transform 1s;
             cursor: pointer;
         }
         .cards img:hover{
@@ -183,7 +188,7 @@
             background-color: rgb(77, 11, 11);
             padding: 5px 35px;
             border-radius: 15px;
-            transition-duration: 1s;
+            transition: transform 1s;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -229,7 +234,11 @@
             }
             .card{
                 flex-wrap: wrap;
-                
+                gap: 20px;
+            }
+            .card-item {
+                width: 45%;
+                height: 20%;
             }
             .card-text {
                 left: 70%;
@@ -248,7 +257,8 @@
                 gap: 15px;
             }
             .card-items {
-                width: 45%;
+                width: 20%;
+                height: 10%;
             }
             .card-texts {
                 padding: 5px 15px;
@@ -270,7 +280,7 @@
             right: 1%;
             border-radius: 50%;
             cursor: pointer;
-            transition-duration: 1s;
+            transition: transform 1s;
             z-index: 1000;
         }
         .support img:hover{
@@ -312,7 +322,7 @@
         <br>
         <div class="card">
             <div class="card-item">
-                <img src="first.jpg" alt="">
+                <img onclick="window.location.href = 'recipe.html'" src="first.jpg" alt="">
                 <div class="card-text">RECIPE</div>
             </div>
             <div class="card-item">
@@ -320,11 +330,11 @@
                 <div class="card-text">MENU</div>
             </div>
             <div class="card-item">
-                <img src="third.jpg" alt="">
+                <img onclick="window.location.href = 'culture.html'" src="third.jpg" alt="">
                 <div class="card-text">CULTURE</div>
             </div>
             <div class="card-item">
-                <img src="fourth.jpg" alt="">
+                <img onclick="window.location.href = 'events.html'" src="fourth.jpg" alt="">
                 <div class="card-text">EVENTS</div>
             </div>
         </div>

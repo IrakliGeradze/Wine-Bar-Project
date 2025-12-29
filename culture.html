@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wine Bar</title>
+    <link rel="icon" href="icon.png">
+    <meta property="og:title" content="Wine Bar">
+    <meta property="og:description" content="Premium pomegranate wine experience">
+    <meta property="og:image" content="https://wine-bar.netlify.app/preview.png">
+    <meta property="og:url" content="https://wine-bar.netlify.app">
+    <meta property="og:type" content="website">
+        <style>
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a0000;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #8B0000, #ff0000);
+            border-radius: 6px;
+            border: 2px solid #1a0000;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: rgb(77, 11, 11);
+            color: #222;
+        }
+        header{
+            text-align: center;
+            justify-content: space-evenly;
+            display: flex;
+            background-color: #efefef;
+            padding: 15px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 10000;
+        }
+        header a{
+            color: black;
+            font-family: sans-serif;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 18px;
+            margin-top: 15px;
+            transition: color 0.5s, transform 0.5s;
+        }
+        header a:hover{
+            color: rgb(146, 19, 19);
+            transform: scale(1.1);
+        }
+        header img{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+        }
+        nav {
+            display: contents;
+        }
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        footer p {
+            margin: 8px 0;
+            line-height: 1.5;
+        }
+        .support img{
+            width: 60px;
+            height: 60px;
+            position: fixed;
+            bottom: 3%;
+            right: 1%;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 1s;
+        }
+        .support img:hover{
+            transform: scale(1.1);
+        }
+        .images{
+            display: flex;
+        }
+        .images img{
+            width: 30%;
+            justify-content: center;
+            margin: 0 auto;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: transform 1s;
+        }
+        .images img:hover{
+            transform: scale(0.9);
+        }
+        .cont{
+            justify-content: center;
+            text-align: center;
+            color: white;
+            border: 2px solid white;
+            border-radius: 10px;
+        }
+        @media (max-width: 768px) {
+            header {
+                justify-content: space-between;
+                padding: 15px 20px;
+                align-items: center;
+                flex-wrap: wrap;
+            }
+            .menu-toggle {
+                display: block;
+            }
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+            }
+            nav.active {
+                display: flex;
+            }
+            header a {
+                font-size: small;
+                display: block;
+                margin: 10px 0;
+            }
+            .images {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .images img {
+                width: 90%;
+            }
+            .cont {
+                margin: 0 15px;
+                padding: 10px;
+            }
+            .cont h3 {
+                font-size: 16px;
+                text-align: justify;
+                padding: 0 10px;
+            }
+            .support img{
+                z-index: 1000;
+            }
+        }
+    </style>
+</head>
+    <div class="support">
+        <img onclick="window.location.href = 'support.html'" src="support.png" alt="">
+    </div>
+<body>
+    <header>
+        <img src="icon.png" onclick="window.location.href = 'index.html'">
+        <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
+        <nav id="navbar">
+            <a href="index.html">MAIN</a>
+            <a href="menu&restaurants.html">MENU & RESTAURANTS</a>
+            <a href="reservation&bookings.html">RESERVATION & BOOKINGS</a>
+            <a href="events.html">EVENTS</a>
+            <a href="contact.html">CONTACT</a>
+            <a href="team.html">TEAM</a>
+        </nav>
+    </header>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <main>
+        <div class="images">
+            <img src="georgia.png" alt="">
+            <img src="georgia1.png" alt="">
+            <img src="georgia2.png" alt="">
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="cont">
+            <h1>Wine Culture</h1>
+            <br>
+            <br>
+            <h3>Wine is more than just a beverage—it is a reflection of culture, history, and the land from which it comes. Across the world, wine carries with it stories of ancient traditions, local flavors, and artisanal craftsmanship. Among the countries celebrated for their wine heritage, Georgia stands out as the cradle of wine civilization. Archaeological discoveries show that Georgians were making wine over 8,000 years ago, using unique clay vessels called qvevri to ferment and store wine—a method still practiced today and recognized by UNESCO as part of the Intangible Cultural Heritage of Humanity.
+            In Georgia, wine is woven into daily life, hospitality, and rituals. The traditional Georgian feast, known as a supra, features an abundance of wine, accompanied by toasts led by a tamada (toastmaster), celebrating friendship, family, and life itself. The diverse climates and terrains of Georgia—from the lush valleys of Kakheti to the mountainous regions of Svaneti—allow for a wide variety of grapes, each producing wines with distinct flavors, aromas, and colors.
+            Globally, wine culture has evolved to embrace both tradition and innovation. Wine tasting, vineyard tours, and the art of pairing wine with food have become cultural experiences, inviting people to slow down and savor life. Yet, the story of Georgia reminds us that at its heart, wine is not just about taste—it is about connection, history, and a shared celebration of nature’s bounty.</h3>
+            <br>
+            <br>
+            <h1>Pomegranate Wine Culture</h1>
+            <br>
+            <h3>Pomegranate wine is a unique and vibrant expression of winemaking, celebrated for its rich color, tangy sweetness, and deep cultural roots. Unlike traditional grape wine, pomegranate wine is crafted from the ruby-red seeds of the pomegranate, a fruit that has symbolized fertility, prosperity, and life in many cultures for thousands of years. Its origins trace back to regions where pomegranates have flourished for centuries, including the Middle East, the Caucasus, and parts of the Mediterranean.
+            In countries like Georgia, Armenia, and Iran, pomegranate wine is more than a drink—it is a cultural emblem. In Georgia, where wine culture is ancient and deeply ingrained, pomegranate wine is gaining recognition as part of the modern revival of traditional winemaking techniques. Artisans often use the same careful fermentation methods employed for grape wines, sometimes aging the wine in clay vessels or wooden barrels, which imparts a complex aroma and depth of flavor.</h3>
+            <br>
+            <br>
+        </div>
+    </main>
+    <br>
+    <br>
+    <footer style="padding: 30px 20px; color: rgb(255, 255, 255); font-family: sans-serif;background-color: rgb(59, 8, 8)">
+        <div class="footer-container">
+            <div class="footer-section">
+                <p style="font-size: 22px; font-weight: 600;">Contact </p>
+                <p>Address: Northern Avenue 6/7, Yerevan, Armenia</p>
+                <br>
+                <p>Phone: 579 18 30 00</p>
+                <br>
+                <p>Hours: 8:00 AM - 10:00 PM (Monday - Saturday)</p>
+            </div>
+            <div class="footer-section">
+                <p style="font-size: 22px; font-weight: 600;">Main Pages</p>
+                <p onclick="window.location.href = 'index.html'" style="cursor: pointer;">Main</p>
+                <p onclick="window.location.href = 'menu&restaurants.html'" style="cursor: pointer;">Menu & Restaurants</p>
+                <p onclick="window.location.href = 'reservation&bookings.html'" style="cursor: pointer;">Reservation & Bookings</p>
+                <p onclick="window.location.href = 'contact.html'" style="cursor: pointer;">Contact</p>
+                <p onclick="window.location.href = 'events.html'"   style="cursor: pointer;">Events</p>
+                <p onclick="window.location.href = 'team.html'"   style="cursor: pointer;">Team</p>
+            </div>
+        </div>
+        <br>
+    </footer>
+    <script>
+        function toggleMenu() {
+            document.getElementById("navbar").classList.toggle("active");
+        }
+    </script>
+</body>
+</html>
